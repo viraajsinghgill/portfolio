@@ -2,9 +2,16 @@
 
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Float, Environment } from "@react-three/drei";
+import { ContactShadows, Float } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { suspend } from "suspend-react";
+
+
+const studio = import("@pmndrs/assets/hdri/studio.exr").then(
+  (module) => module.default
+);
 
 export default function Shapes() {
   return (
@@ -27,6 +34,7 @@ export default function Shapes() {
           />
           {/* <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} /> */}
+          <Environment files={suspend(studio)} />
 
           {/* environment is giving errro not able to resolve */}
           {/* <Environment preset="studio" />               */}
@@ -69,27 +77,29 @@ function Geometries() {
     new THREE.MeshNormalMaterial(),
     // these below lines are giving black colour due environment is not set so will do it later
 
-    // // new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
-    // // new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
-    // // new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
-    // // new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
-    // // new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
-    // new THREE.MeshStandardMaterial({
-    //   roughness: 0,
-    //   metalness: 0.5,
-    //   color: 0x2980b9,
-    // }),
-    // new THREE.MeshStandardMaterial({
-    //   color: 0x2c3e50,
-    //   roughness: 0.1,
-    //   metalness: 0.5,
-    // }),
+    new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
+    new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
+    new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({
+      roughness: 0,
+      metalness: 0.5,
+      color: 0x2980b9,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: 0x2c3e50,
+      roughness: 0.1,
+      metalness: 0.5,
+    }),
   ];
 
   const soundEffects = [
     new Audio("/sounds/knock2.ogg"),
     new Audio("/sounds/knock3.ogg"),
     new Audio("/sounds/knock1.ogg"),
+    new Audio("/sounds/knock4.ogg"),
+    new Audio("/sounds/knock5.ogg"),
   ];
 
   // pass to geometry
