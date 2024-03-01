@@ -17,6 +17,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "whether",
 				"type": "Text"
+			},
+			"middle_name": {
+				"__TYPE__": "FieldContent",
+				"value": "steep",
+				"type": "Text"
 			}
 		},
 		"items": []

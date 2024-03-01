@@ -777,6 +777,16 @@ export interface HeroSliceDefaultPrimary {
   first_name: prismic.KeyTextField;
 
   /**
+   * Middle Name field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.middle_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  middle_name: prismic.KeyTextField;
+
+  /**
    * Last Name field in *Hero → Primary*
    *
    * - **Field Type**: Text

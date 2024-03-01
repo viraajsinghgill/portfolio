@@ -94,6 +94,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </span>
             <span className="-mt-[.2em] block text-slate-500 ">
               {" "}
+              {renderLetters(slice.primary.middle_name, "last")}
+            </span>
+            <span className="-mt-[.2em] block text-slate-500 ">
+              {" "}
               {renderLetters(slice.primary.last_name, "last")}
             </span>
           </h1>
